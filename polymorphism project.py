@@ -32,9 +32,27 @@ class Phlebotomist(Technicians):
         else:
             print("The lab number is incorrect.")
 
+#Another Child Class Histologists
+class Histologist(Technicians):
+    base_pay = 16.50
+    department = "Pathology"
+    pathology_id = "7784"
+
+    def getRegistrationInfo(self):
+        reg_name = input("Enter your name: ")
+        reg_email = input("Enter your email: ")
+        reg_path_id = input("Enter your pathology ID: ")
+        if (reg_name == self.name and reg_path_number == self.pathology_id):
+            print("Welcome back, {}!".format(reg_name))
+        else:
+            print("The pathology ID is incorrect.")
+
 
 employee = Technicians()
 employee.getRegistrationInfo()
 
 phleb = Phlebotomist()
 phleb.getRegistrationInfo()
+
+histo = Histologist()
+histo.getRegistrationInfo()
