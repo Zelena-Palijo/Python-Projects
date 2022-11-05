@@ -8,8 +8,8 @@ class ParentWindow(Frame):
     def __init__(self, master):
         Frame.__init__(self)
         self.master.title("File Transfer") #title of GUI window
-        #Creates button to select files frm source directory
-        self.sourceDir_btn = Button(text="Select Source", width=20)
+        #Creates button to select files from source directory
+        self.sourceDir_btn = Button(text="Select Source", width=20, command=self.sourceDir)
         #Positions source button in GUI using tkinter grid()
         self.sourceDir_btn.grid(row=0, column=0, padx=(20,10), pady=(30,0))
 
@@ -30,6 +30,14 @@ class ParentWindow(Frame):
         #Positions entry in GUI, line up buttons
         self.destination_dir.grid(row=1, column=1, columnspan=2, padx=(20,10), pady=(15,10))
 
+    def sourceDir(self):
+        selectSourceDir = tkinter.filedialog.askdirectory()
+        self.source_dir.delete(0,END) #clear entry widget
+        self.source_dir.insert(0,selectSourceDir) #insert user selection for source_dir
+        
+
+    def destDir(self):
+        selectDestDir = tkinter.filedialog.askdirectory()
 
 if __name__ == "__main__":
     root = tk.Tk()
