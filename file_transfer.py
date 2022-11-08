@@ -2,6 +2,9 @@ import tkinter as tk
 from tkinter import *
 import tkinter.filedialog
 
+import os
+import shutil
+
 
 #set up GUI window
 class ParentWindow(Frame):
@@ -30,6 +33,16 @@ class ParentWindow(Frame):
         #Positions entry in GUI, line up buttons
         self.destination_dir.grid(row=1, column=1, columnspan=2, padx=(20,10), pady=(15,10))
 
+        #Creates button to transfer files
+        self.transfer_btn = Button(text="Transfer Files", width=20, command=self.transferFiles)
+        #Positions transfer files button
+        self.transfer_btn.grid(row=2, column=1, padx=(200,0), pady=(0,15))
+
+        #Creates an exit button
+        self.exit_btn = Button(text="Exit", width=20, command=self.exit_program)
+        #Positions the exit button
+        self.exit_btn.grid(row=2, column=2, padx=(10,40), pady=(0,15))
+
     def sourceDir(self):
         selectSourceDir = tkinter.filedialog.askdirectory()
         self.source_dir.delete(0,END) #clear entry widget
@@ -40,6 +53,29 @@ class ParentWindow(Frame):
         selectDestDir = tkinter.filedialog.askdirectory()
         self.destination_dir.delete(0, END)
         self.destination_dir.insert(0, selectDestDir)
+
+
+    #Creates function to transfer files from one directory to another
+    def transferFiles(self):
+        #Gets source directory
+        source = self.source_dir.get()
+        #Gets destination directory
+        destination = self.destination_dir.get()
+        #Gets a list of files in the source directory
+        source_files = os.listdir(source)
+        #Runs through each file in the source directory
+        for i in source_files:
+            #moves each file from the source to the destination
+            shutil.move(source + '/' + i, destination)
+            print(i + ' was successfully transferred.')
+
+
+    #Creates function to exit program
+    def exit_program(self):
+        #root is the main GUI window, the Tkinter destroy method
+        #tells python to terminate root.mainloop and all widgets inside the GUI window
+        root.destroy()
+
 
 if __name__ == "__main__":
     root = tk.Tk()
