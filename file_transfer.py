@@ -56,6 +56,14 @@ class ParentWindow(Frame):
         self.destination_dir.delete(0, END)
         self.destination_dir.insert(0, selectDestDir)
 
+    #Creates function to check file time
+    def pathDir(self):
+        path = tkinter.filedialog.askdirectory()
+        self.path_dir.delete(0,END) #clear entry widget
+        self.path_dir.insert(0,selectpathDir) #insert user selection to check file time
+        file_modification_time = os.path.getmtime(path) #returns the time of last modification in directory
+        print(file_modification_time)
+
 
     #Creates function to transfer files from one directory to another
     def transferFiles(self):
