@@ -40,6 +40,14 @@ class ParentWindow(Frame):
         #Positions transfer files button
         self.transfer_btn.grid(row=2, column=1, padx=(200,0), pady=(0,15))
 
+        #Creates button to select file to check time
+        self.pathDir_btn = Button(text="Select File", width=20, command=self.pathDir)
+        self.pathDir_btn.grid(row=3, column=0, padx=(20,10), pady=(15,10))
+
+        #Creates entry for file selection
+        self.path_dir = Entry(width=75)
+        self.path_dir.grid(row=3, column=1,padx=(20,10), pady=(15,10))
+
         #Creates an exit button
         self.exit_btn = Button(text="Exit", width=20, command=self.exit_program)
         #Positions the exit button
@@ -59,8 +67,8 @@ class ParentWindow(Frame):
     #Creates function to check file time
     def pathDir(self):
         path = tkinter.filedialog.askdirectory()
-        self.path_dir.delete(0,END) #clear entry widget
-        self.path_dir.insert(0,selectpathDir) #insert user selection to check file time
+        self.path_dir.delete(0, END) #clear entry widget
+        self.path_dir.insert(0, path) #insert user selection to check file time
         file_modification_time = os.path.getmtime(path) #returns the time of last modification in directory
         print(file_modification_time)
 
