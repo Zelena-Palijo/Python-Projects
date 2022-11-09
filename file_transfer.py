@@ -6,6 +6,8 @@ import os
 import shutil
 import time
 import datetime
+from datetime import timedelta
+from datetime import date
 
 
 #set up GUI window
@@ -40,14 +42,6 @@ class ParentWindow(Frame):
         #Positions transfer files button
         self.transfer_btn.grid(row=2, column=1, padx=(200,0), pady=(0,15))
 
-        #Creates button to select file to check time
-        self.pathDir_btn = Button(text="Select File", width=20, command=self.pathDir)
-        self.pathDir_btn.grid(row=3, column=0, padx=(20,10), pady=(15,10))
-
-        #Creates entry for file selection
-        self.path_dir = Entry(width=75)
-        self.path_dir.grid(row=3, column=1,padx=(20,10), pady=(15,10))
-
         #Creates an exit button
         self.exit_btn = Button(text="Exit", width=20, command=self.exit_program)
         #Positions the exit button
@@ -70,7 +64,8 @@ class ParentWindow(Frame):
         self.path_dir.delete(0, END) #clear entry widget
         self.path_dir.insert(0, path) #insert user selection to check file time
         file_modification_time = os.path.getmtime(path) #returns the time of last modification in directory
-        print(file_modification_time)
+        #local_modification_time = time.ctime(file_modification_time) #modifies the time, not sure if necessary
+        time_now = datetime.datetime.now() #returns current time
 
 
     #Creates function to transfer files from one directory to another
@@ -83,6 +78,7 @@ class ParentWindow(Frame):
         source_files = os.listdir(source)
         #Runs through each file in the source directory
         for i in source_files:
+            #need to make it so that time goes through and then decide on which time
             #moves each file from the source to the destination
             shutil.move(source + '/' + i, destination)
             print(i + ' was successfully transferred.')
