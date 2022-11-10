@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import *
+import webbrowser
 
 class ParentWindow(Frame):
     def __init__(self, master):
