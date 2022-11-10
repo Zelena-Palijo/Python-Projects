@@ -76,14 +76,15 @@ class ParentWindow(Frame):
         destination = self.destination_dir.get()
         #Gets a list of files in the source directory
         source_files = os.listdir(source)
-        timestamp = os.path.getmtime(source) #returns the time of last modification in directory
-        #print(timestamp) checking if both float type
-        timenow = datetime.datetime.now() #returns current time
-        timenow_float = (timenow - datetime.datetime(2000,1,1)).total_seconds()
-        #print(timenow_float) checking if both float type
-        timedelta = timenow_float - timestamp
+        
         #Runs through each file in the source directory
         for i in source_files:
+            timestamp = os.path.getmtime(source) #returns the time of last modification in directory
+            #print(timestamp) checking if both float type
+            timenow = datetime.datetime.now() #returns current time
+            timenow_float = (timenow - datetime.datetime(2000,1,1)).total_seconds()
+            #print(timenow_float) checking if both float type
+            timedelta = timenow_float - timestamp
             if timedelta < 86400: #seconds in 24 hour
                 #need to make it so that time goes through and then decide on which time
                 #moves each file from the source to the destination
