@@ -57,16 +57,16 @@ class ParentWindow(Frame):
         selectDestDir = tkinter.filedialog.askdirectory()
         self.destination_dir.delete(0, END)
         self.destination_dir.insert(0, selectDestDir)
-
+    """
     #Creates function to check file time
     def pathDir(self):
         path = tkinter.filedialog.askdirectory()
         self.path_dir.delete(0, END) #clear entry widget
         self.path_dir.insert(0, path) #insert user selection to check file time
-        file_modification_time = os.path.getmtime(path) #returns the time of last modification in directory
+        timestamp = os.path.getmtime(path) #returns the time of last modification in directory
         #local_modification_time = time.ctime(file_modification_time) #modifies the time, not sure if necessary
         time_now = datetime.datetime.now() #returns current time
-
+    """
 
     #Creates function to transfer files from one directory to another
     def transferFiles(self):
@@ -76,13 +76,19 @@ class ParentWindow(Frame):
         destination = self.destination_dir.get()
         #Gets a list of files in the source directory
         source_files = os.listdir(source)
+        timestamp = os.path.getmtime(source) #returns the time of last modification in directory
+        #print(timestamp) checking if both float type
+        timenow = datetime.datetime.now() #returns current time
+        timenow_float = (timenow - datetime.datetime(2000,1,1)).total_seconds()
+        #print(timenow_float) checking if both float type
+        timedelta = timenow_float - timestamp
         #Runs through each file in the source directory
         for i in source_files:
-            #need to make it so that time goes through and then decide on which time
-            #moves each file from the source to the destination
-            shutil.move(source + '/' + i, destination)
-            print(i + ' was successfully transferred.')
-
+            if timedelta < 86400: #seconds in 24 hour
+                #need to make it so that time goes through and then decide on which time
+                #moves each file from the source to the destination
+                shutil.move(source + '/' + i, destination)
+                print(i + ' was successfully transferred.')
 
     #Creates function to exit program
     def exit_program(self):
