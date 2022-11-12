@@ -16,7 +16,10 @@ class ParentWindow(Frame):
         self.custom_btn = Button(self.master, text="Submit Custom Text", width=30, height=2)
         self.custom_btn.grid(row=2, column=2, padx=(10,40),pady=(0,15))
 
-        #Creates 
+        #Creates entry for custom text
+        self.custom_entry = Entry(width = 75)
+        #Positions entry in GUI
+        self.custom_entry.grid(row=0, column=1, columnspan=2, padx=(20,10), pady=(30,0))
 
     def defaultHTML(self):
         htmlText = "Stay tuned for our amazing summer sale!"
