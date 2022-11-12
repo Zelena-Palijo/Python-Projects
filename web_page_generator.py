@@ -17,11 +17,10 @@ class ParentWindow(Frame):
         htmlContent = "<html>\n<body>\n<h1>" + htmlText + "</h1>\n</body>\n</html>"
         htmlFile.write(htmlContent)
         htmlFile.close()
-        #print(htmlContent)
-        #filepath = '/Users/zelenakpalijo/Documents/GitHub/Python-Projects'+'index.html'
-        #webbrowser.open_new_tab(filepath)
-        webbrowser.open_new_tab("index.html")
-
+        filepath = "file:/Users/zelenakpalijo/Documents/GitHub/Python-Projects/" + "index.html"
+        #need edit for opening in MacOS, need file path of index.html
+        webbrowser.open_new_tab(filepath)
+        
 
 
            
