@@ -84,8 +84,10 @@ class ParentWindow(Frame):
             print(path)
             timestamp = os.path.getmtime(path) #returns the time of last modification in directory
             print(timestamp)
-            timenow = datetime.datetime.now() #returns current time
-            timenow_float = (timenow - datetime.datetime(2000,1,1)).total_seconds()
+            mod_timestamp = datetime.date.fromtimestamp(timestamp)
+            print(mod_timestamp)
+            #timenow = datetime.datetime.now() #returns current time
+            #timenow_float = (timenow - datetime.datetime(2000,1,1)).total_seconds()
             #print(timenow_float) checking if both float type
             timedelta = timenow_float - timestamp
             if timedelta < 86400: #seconds in 24 hour
