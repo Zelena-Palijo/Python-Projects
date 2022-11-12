@@ -15,10 +15,11 @@ class ParentWindow(Frame):
         htmlText = "Stay tuned for our amazing summer sale!"
         htmlFile = open("index.html","w")
         htmlContent = "<html>\n<body>\n<h1>" + htmlText + "</h1>\n</body>\n</html>"
+        htmlFile.write(htmlContent)
         htmlFile.close()
-        print("index.html")
-        #b = webbrowser.get('chrome')
-        #b.open_new_tab("index.html")
+        #print(htmlContent)
+        #filepath = '/Users/zelenakpalijo/Documents/GitHub/Python-Projects'+'index.html'
+        #webbrowser.open_new_tab(filepath)
         webbrowser.open_new_tab("index.html")
 
 
