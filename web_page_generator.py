@@ -10,16 +10,22 @@ class ParentWindow(Frame):
         self.master.title("Web Page Generator")
         #Creates button for default HTML page
         self.default_btn = Button(self.master, text="Default HTML Page", width = 30, height=2, command=self.defaultHTML)
-        self.default_btn.grid(row=2, column=1, padx=(200,0), pady=(0,15))
+        self.default_btn.grid(row=3, column=0, padx=(200,0), pady=(0,15))
 
         #Creates button for submitting custom text
         self.custom_btn = Button(self.master, text="Submit Custom Text", width=30, height=2)
-        self.custom_btn.grid(row=2, column=2, padx=(10,40),pady=(0,15))
+        self.custom_btn.grid(row=3, column=1, padx=(10,10),pady=(0,15))
 
+        
+        #Label for custom entry
+        self.label_entry = Label(text = "Enter custom text or click the Default HTML page button")
+        self.label_entry.grid(row=0, column=0, columnspan=3, padx=(0,0), pady=(10,10))
         #Creates entry for custom text
         self.custom_entry = Entry(width = 75)
         #Positions entry in GUI
-        self.custom_entry.grid(row=0, column=1, columnspan=2, padx=(20,10), pady=(30,0))
+        self.custom_entry.grid(row=1, column=0, columnspan=3, padx=(0,0), pady=(10,10))
+      
+        
 
     def defaultHTML(self):
         htmlText = "Stay tuned for our amazing summer sale!"
