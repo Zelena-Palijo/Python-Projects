@@ -83,18 +83,22 @@ class ParentWindow(Frame):
             path = os.path.join(source, i)
             print(path)
             timestamp = os.path.getmtime(path) #returns the time of last modification in directory
-            print(timestamp)
+            print("Timestamp: ", timestamp)
             mod_timestamp = datetime.date.fromtimestamp(timestamp)
-            print(mod_timestamp)
-            #timenow = datetime.datetime.now() #returns current time
-            #timenow_float = (timenow - datetime.datetime(2000,1,1)).total_seconds()
-            #print(timenow_float) checking if both float type
-            timedelta = timenow_float - timestamp
-            if timedelta < 86400: #seconds in 24 hour
+            print("Modified timestamp: ",mod_timestamp)
+            timenow = time.time() #returns current time
+            print("Time now: ",timenow)
+            mod_timenow = datetime.date.fromtimestamp(timenow)
+            print("Modified time now: ",mod_timenow)
+            timediff = mod_timenow - timedelta(hours=24)
+            print("Time difference: ", timediff)
+            if timediff < mod_timestamp:
                 #need to make it so that time goes through and then decide on which time
                 #moves each file from the source to the destination
                 shutil.move(source + '/' + i, destination)
                 print(i + ' was successfully transferred.')
+            else:
+                print("There are no recent files to transfer.")
 
 
     #Creates function to exit program
