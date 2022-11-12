@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import *
+import tkinter.filedialog
 import webbrowser
 import os
 
@@ -8,12 +9,14 @@ class ParentWindow(Frame):
         Frame.__init__(self, master)
         self.master.title("Web Page Generator")
         #Creates button for default HTML page
-        self.btn = Button(self.master, text="Default HTML Page", width = 30, height=2, command=self.defaultHTML)
-        self.btn.grid(padx=(10,10), pady=(10,10))
+        self.default_btn = Button(self.master, text="Default HTML Page", width = 30, height=2, command=self.defaultHTML)
+        self.default_btn.grid(row=2, column=1, padx=(200,0), pady=(0,15))
 
-        #Creates button for submittin custom text
+        #Creates button for submitting custom text
         self.custom_btn = Button(self.master, text="Submit Custom Text", width=30, height=2)
-        self.btn.grid(padx=(10,10),pady=(10,10))
+        self.custom_btn.grid(row=2, column=2, padx=(10,40),pady=(0,15))
+
+        #Creates 
 
     def defaultHTML(self):
         htmlText = "Stay tuned for our amazing summer sale!"
