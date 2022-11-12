@@ -80,9 +80,10 @@ class ParentWindow(Frame):
         #Runs through each file in the source directory
         for i in source_files:
             #cwd = os.getcwd()
-            path = os.path.join(*source_files, "")
+            path = os.path.join(source, i)
+            print(path)
             timestamp = os.path.getmtime(path) #returns the time of last modification in directory
-            #print(timestamp) checking if both float type
+            print(timestamp)
             timenow = datetime.datetime.now() #returns current time
             timenow_float = (timenow - datetime.datetime(2000,1,1)).total_seconds()
             #print(timenow_float) checking if both float type
