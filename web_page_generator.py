@@ -16,7 +16,7 @@ class ParentWindow(Frame):
         self.label_entry = Label(text = "Enter custom text or click the Default HTML page button")
         self.label_entry.grid(row=0, column=0, columnspan=3, padx=(0,0), pady=(10,10))
         #Creates entry for custom text
-        self.custom_entry = Entry(width = 75, bg="black")
+        self.custom_entry = Entry(width = 75, bg="white")
         #Positions entry in GUI
         self.custom_entry.grid(row=1, column=0, columnspan=3, padx=(0,0), pady=(10,10))
         
@@ -33,12 +33,12 @@ class ParentWindow(Frame):
         htmlContent = "<html>\n<body>\n<h1>" + htmlText + "</h1>\n</body>\n</html>"
         htmlFile.write(htmlContent)
         htmlFile.close()
-        filepath = "file:/Users/zelenakpalijo/Documents/GitHub/Python-Projects/" + "index.html"
+        #filepath = "file:/Users/zelenakpalijo/Documents/GitHub/Python-Projects/" + "index.html"
         #need edit for opening in MacOS, need file path of index.html
-        webbrowser.open_new_tab(filepath)
+        #webbrowser.open_new_tab(filepath)
 
         #if working with windows, no need to include file path, instead just use
-        #webbrowser.open_new_tab("index.html")
+        webbrowser.open_new_tab("index.html")
 
 
     def customHTML(self): #function for custom HTML
@@ -50,11 +50,11 @@ class ParentWindow(Frame):
         htmlFile.close()
         filepath = "file:/Users/zelenakpalijo/Documents/GitHub/Python-Projects/" + "custom_index.html"
         #need edit for opening in MacOS, need file path of index.html
-        webbrowser.open_new_tab(filepath)
-        print(htmlFile.read())
+        #webbrowser.open_new_tab(filepath)
+        #print(htmlFile.read())
 
         #if working with windows, no need to include file path, instead just use
-        #webbrowser.open_new_tab("custom_index.html")
+        webbrowser.open_new_tab("custom_index.html")
 
 
 
