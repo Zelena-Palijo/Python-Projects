@@ -42,7 +42,8 @@ class ParentWindow(Frame):
 
 
     def customHTML(self): #function for custom HTML
-        htmlText = "".format(self.custom_entry)
+        htmlText = self.custom_entry.get()
+        print(htmlText)
         htmlFile = open("custom_index.html", "w")
         htmlContent = "<html>\n<body>\n<h1>" + htmlText + "</h1>\n</body>\n</html>"
         htmlFile.write(htmlContent)
