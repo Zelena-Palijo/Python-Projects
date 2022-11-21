@@ -4,7 +4,7 @@
 
 ## **Project Highlights**
 
-###[File Transfer Project](https://github.com/Zelena-Palijo/Python-Projects/blob/main/file_transfer.py)
+[File Transfer Project](https://github.com/Zelena-Palijo/Python-Projects/blob/main/file_transfer.py)
 Used Tkinter to create basic file transfer window, with buttons for selecting Source and Destination files/folders.
 
 [Webpage Generator Project](https://github.com/Zelena-Palijo/Python-Projects/blob/main/web_page_generator.py)
