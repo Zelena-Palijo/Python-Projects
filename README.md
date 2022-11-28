@@ -1,6 +1,6 @@
 # Python Projects
 
-### This repository includes various Python-centered projects during the course. Initial projects utilize Python IDLE, while later projects utilize PyCharm and Django.
+This repository includes various Python-centered projects during the course. Initial projects utilize Python IDLE, while later projects utilize PyCharm and Django.
 
 ## **Project Highlights**
 
